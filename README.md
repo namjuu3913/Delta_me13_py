@@ -288,7 +288,7 @@ This project is distributed under the MIT License. See the ```LICENSE``` file fo
 
     License: MIT.
 
-*llama.cpp — The platform that actually runs LLM and opens the server.
+* llama.cpp — The platform that actually runs LLM and opens the server.
 
     License: MIT.
 
