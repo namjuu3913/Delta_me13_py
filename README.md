@@ -1,14 +1,33 @@
-
 ## About the Project
-Delta-me13 Python Prototype is a character chatbot that runs locally using a quantized GGUF LLM and multilingual sentence embeddings. It aims to provide responsive, multilingual dialog while keeping resource usage modest.
+Delta-me13_py is a character chatbot that runs locally using a quantized GGUF LLM and multilingual sentence embeddings. It aims to provide responsive, multilingual dialog while keeping resource usage modest. I started this project after I got inspiration from a game named HSR(Honkai Star Rail). Currently, this code is somewhat messy and runs on hopes and dreams now, but I will work on fixing it.
 
-**Highlights**
+## Development environment
+* OS: Windows 11
+* IDE: Visual Studio 2022
+* CudaToolKit: 12.9
+* CPU: Ryzen 9 7900x
+* GPU: RTX 5080
+* DRAM: 96 GB DDR5 RAM
+
+## Goal of this project
+I have goals for this project, and I need collaborators to achieve them.
+
+**Goals**
+* GUI
+* Implement the emotion module. (for more humanlike actions)
+* Add function calls. (make the character act)
+* Add a simulation module to simulate the action of a virtual persona(character) in a series of events.
+* Add custom C++ lib
+* Most importantly, enhance Python and C++ skills
+
+
+## Highlights
 - Multilingual conversations via `paraphrase-multilingual-mpnet-base-v2`
 - Local LLM (GGUF) inference for privacy and speed
 - FAISS-based vector search for fast retrieval over dialogue/context
 
 
-### Installation
+## Installation
 
 Follow these steps to set up the project environment locally. This guide covers installing necessary system-level dependencies, setting up a Python virtual environment, and downloading the required models.
 
@@ -34,13 +53,15 @@ Follow these steps to set up the project environment locally. This guide covers 
     ```
     
     3. Create a Python Virtual Environment
-       We recommend using a virtual environment to isolate project dependencies. The following command will create a folder named .venv in your project directory.
+
+       I recommend using a virtual environment to isolate project dependencies. The following command will create a folder named .venv in your project directory.
     ```sh
     
     python -m venv .venv
     ```
     
     4. Activate the Virtual Environment
+
         You must activate the environment before installing packages.
        * On Windows (PowerShell/CMD):
          ```sh
@@ -53,12 +74,14 @@ Follow these steps to set up the project environment locally. This guide covers 
         (I'm not sure it will work on macOS and Linux)
     
     5. Install Required Python Packages
+
         Install all the necessary libraries from the requirements.txt file into your active virtual environment.
          ```sh
             pip install -r requirements.txt
          ```
 
     6. Download Large Model Files
+
        Finally, pull the large model and data files managed by Git LFS.
      ```sh
      git lfs pull
@@ -73,7 +96,7 @@ Follow these steps to set up the project environment locally. This guide covers 
      
    * #### Sentence transformer model
    
-     Use paraphrase-multilingual-mpnet-base-v2 model.
+     **Use paraphrase-multilingual-mpnet-base-v2 model.**
 
      Put the file in the ```projecfile/Character/models``` file
 
@@ -84,14 +107,26 @@ Follow these steps to set up the project environment locally. This guide covers 
 You are now ready to run the project!
 
 
-### License
+## How to use it
+
+1. Start the code
+```sh
+(project root path) python delta_me13_py.py
+```
+
+2. Choose a language you want to use.
+
+
+
+
+## License
 
 This project is distributed under the MIT License. See the ```LICENSE``` file for details.
 
 
-### Acknowledgments & Key Dependencies
+## Acknowledgments & Key Dependencies
 
-* NVIDIA CUDA Toolkit — GPU computing platform and model. Version 12.9 used here. 
+* NVIDIA CUDA Toolkit — GPU computing platform and model. Version 12.9 is used here. 
 
     License: NVIDIA Software License Agreement.
 
