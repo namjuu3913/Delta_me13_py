@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+env/
+.env/
+
+# IDE files
+.idea/
+.vscode/
+
+# AI Models & Checkpoints
+# Large model files should not be committed to Git.
+models/
+checkpoints/
+saved_models/
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.safetensors
+*.onnx
+*.pb
+*.bin
+*.gguf
