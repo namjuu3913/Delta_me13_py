@@ -1,38 +1,45 @@
 import os, json
 from Character.Character import Character
 from pathlib import Path
+from typing import List
 
 class CharacterHandler:
     charac_save_path: Path = Path(__file__).resolve().parent / "CharacterSave"
 
     #Check there is a character folder in CharacterSave
-    def checkCharacter(self, name_charac:str) -> bool:
-        for name_charac in os.listdir(self.charac_save_path):
-            target_path = os.path.join(self.charac_save_path, name_charac)
-            if (os.path.isdir(target_path)):
-                return True
-        
-        return False
+    def checkCharacter(self, name_charac: str) -> bool:
+        target_path = self.charac_save_path / name_charac
+        return target_path.is_dir()
+    
+    #Prompt the user to enter multiple lines (one item per line).
+    #Finish by pressing Enter on an empty line or typing END/DONE/QUIT/Q.
+    #Returns a list of non-empty, stripped strings.
+    def _get_user_input_list(self, prompt: str) -> List[str]:     
+        print(prompt)
+        print("(Finish with an empty line or type END/DONE/QUIT/Q)")
+        items: List[str] = []
+        while True:
+            try:
+                line = input().strip()
+            except (EOFError, KeyboardInterrupt):
+                print("\nInput cancelled by user.")
+                break
+
+            if line == "" or line.upper() in {"END", "DONE", "QUIT", "Q"}:
+                break
+            items.append(line)
+        return items
 
     #Make new Character
-    def makeNewCharacter(self):
-        #Choose character name
-        name_of_char:str
+    def makeNewCharacter(self,name_of_char:str):
         while True:
-            name_of_char = input("Character name: ")
-            if not name_of_char:
-                print("Name cannot be empty.")
-                continue
-
-            temp_in = input(f"Is {name_of_char} correct? (Y : N : exit): ")
+            temp_in = input(f"Is {name_of_char} correct? (Y : N): ")
 
             if temp_in.upper() == "Y":
                 break
             elif temp_in.upper() == "N":
-                continue
-            elif temp_in.upper() == "EXIT":
                 print("Character creation cancelled.")
-                return
+                return 
             else:
                 print("Invalid input! Please enter Y, N, or exit.")
         
@@ -55,6 +62,7 @@ class CharacterHandler:
         print("""
 -----------------------------------------------------------------------
 Now, please enter the character's detailed information.
+Finish lists with an empty line or type END/DONE/QUIT/Q.
 The example below shows the format you will be following.
 
 Example:
@@ -93,5 +101,12 @@ Example:
             with open(character_root_path, 'w', encoding='utf-8') as f:
                 json.dump(new_persona, f, ensure_ascii=False, indent=4)
             print(f"\nSuccessfully saved character information to '{character_root_path}'!")
+
+        except PermissionError:
+            print("\n[ERROR] Permission Denied!")
+            print(f"Could not write to the directory: {character_path}")
+            print("Please check if your antivirus software or Windows Defender's 'Controlled Folder Access' is blocking the application.")
+            return False
+
         except Exception as e:
             print(f"\nAn error occurred while saving the JSON file: {e}")

@@ -43,10 +43,10 @@
     <Folder Include="Character\CharacterSave\Example\backstory\" />
     <Folder Include="Character\CharacterSave\Example\GeneralDB\" />
     <Folder Include="Character\CharacterSave\Example\VectorDB\" />
-    <Folder Include="Character\CharacterSave\아젠티\GeneralDB\" />
-    <Folder Include="Character\CharacterSave\아젠티\" />
-    <Folder Include="Character\CharacterSave\아젠티\backstory\" />
-    <Folder Include="Character\CharacterSave\아젠티\VectorDB\" />
+    <Folder Include="Character\CharacterSave\Argenti\GeneralDB\" />
+    <Folder Include="Character\CharacterSave\Argenti\" />
+    <Folder Include="Character\CharacterSave\Argenti\backstory\" />
+    <Folder Include="Character\CharacterSave\Argenti\VectorDB\" />
     <Folder Include="Server\" />
     <Folder Include="Command\" />
   </ItemGroup>
@@ -56,9 +56,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Character\CharacterSave\Example\example.json" />
-    <Content Include="Character\CharacterSave\아젠티\아젠티.json">
-      <Publish>False</Publish>
-    </Content>
     <Content Include="LICENSE.md" />
     <Content Include="temp.json" />
   </ItemGroup>

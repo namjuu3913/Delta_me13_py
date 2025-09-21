@@ -22,7 +22,7 @@ FLASH_ATTN:bool = cfg.SERVER_CONFIG["FLASH_ATTN"]
 
 def main():
     #choose language
-    language:str = input("What language do you want to use? Be careful about typo. I haven't made validator for language. (default: Korean) : ").lower()
+    language:str = input("What language do you want to use? Be careful about typos. I haven't made a validator for the language. (default: Korean) : ").lower()
     if not language:
         language = "korean"
     #Character
@@ -36,12 +36,13 @@ def main():
             print("Name cannot be empty.")
             continue
 
+        print(character_handler.checkCharacter(user_in_char_name))
         if(character_handler.checkCharacter(user_in_char_name)):
             print(f"{user_in_char_name} folder found! Starting RP......")
             virtual_persona = Character(user_in_char_name)
             break
         else:
-            temp_in = input(f"{user_in_char_name} seems to be not in the Character Save folder. Do you want to make new character, {user_in_char_name}? (Y : N) : ")
+            temp_in = input(f"{user_in_char_name} seems not to be in the Character Save folder. Do you want to make a new character, {user_in_char_name}? (Y : N) : ")
             if temp_in.upper() == "Y":
                 character_handler.makeNewCharacter(user_in_char_name)
                 virtual_persona = Character(user_in_char_name)

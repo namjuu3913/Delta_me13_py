@@ -33,7 +33,7 @@ def startLlamaCppServer(mode: str = "new_console", chat_template: str | None = N
         "--port",           str(PORT),
         "--n-gpu-layers",   str(NGL),
         "--ctx-size",       str(CTX),
-        "--batch-size",     str(BATCH_SIZE),
+        "--batch-size",     str(BATCH_SIZE)
     ]
 
     if VERBOSE:
@@ -47,6 +47,7 @@ def startLlamaCppServer(mode: str = "new_console", chat_template: str | None = N
 
     shown = " ".join(f'"{a}"' if " " in str(a) else str(a) for a in cmd)
     print("Launching:", shown)
+
 
     proc = None
 
