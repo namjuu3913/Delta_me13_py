@@ -57,7 +57,6 @@
     <Content Include=".gitignore" />
     <Content Include="Character\CharacterSave\Example\example.json" />
     <Content Include="LICENSE.md" />
-    <Content Include="temp.json" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include=".venv\">
