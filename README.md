@@ -1,6 +1,8 @@
 ## About the Project
 Delta-me13_py is a character chatbot that runs locally using a quantized GGUF LLM and multilingual sentence embeddings. It aims to provide responsive, multilingual dialog while keeping resource usage modest. I started this project after I got inspiration from a game named HSR(Honkai Star Rail). Currently, this code is somewhat messy and runs on hopes and dreams now, but I will work on fixing it.
 
+Because I'm Korean, some part of the code is written in Korean. I will gradually change those into English later.
+
 ## Development environment
 * OS: Windows 11
 * IDE: Visual Studio 2022
@@ -109,12 +111,152 @@ You are now ready to run the project!
 
 ## How to use it
 
-1. Start the code
+#### Using saved character
+1. Enable .venv
+```sh
+project path> .\.venv\Scripts\Activate
+```
+
+2. Start the code
 ```sh
 (project root path) python delta_me13_py.py
 ```
 
-2. Choose a language you want to use.
+3. Choose a language you want to use.
+```sh
+What language do you want to use? Be careful about typos. I haven't made a validator for the language. (default: Korean) :
+```
+
+The output will look like this. It supports 50 languages. (Check README.md of paraphrase-multilingual-mpnet-base-v2 for language support) If you choose a language, the virtual persona will speak that language. And since I didn't make a validator yet, be careful with typos.
+
+4. Choose a character
+```sh
+Character name: 
+```
+You can input the name of the character from here. If you type a character that is already in the ```Character/CharacterSave``` file, It will start the llama.cpp local server and start the chat with the character. I put the test character named Argenti which is from HSR.
+
+5. Exit the chat
+You can type ```-/exit``` to end the chat. You MUST turn off the server after you finish it.
+
+#### Generate new character
+* *Method 1*: Make a character file by yourself.(**recommanded**)
+You can make a character file manually in the ```CharacterSave``` folder.
+The folder should look like this:
+```sh
+Character name folder(ex. Andrew)
+    backstory
+    GeneralDB
+    VectorDB
+    Character name.json(ex. Andrew.json)
+```
+You must put GeneralDB, VectorDB, and Character name.json.
+
+And for .json file, the format will be like:
+```sh
+{
+    "name": "",
+    "sex": "",
+    "MBTI": "",
+    "age": "",
+    "back_story": "",
+    "constraints": [],
+    "safety": [
+        "",
+        "",
+        ""
+    ]
+}
+```
+    The character is made with these traits:
+    * name: The character's name
+    * sex: The character's gender. (It works well with classic male and female, but I haven't tested it with other genders. I will test it with various genders later.)
+    * MBTI: This is the most important aspect of the character. Based on MBTI, AI will make a personality for the character.
+    * Age: Age of the Character
+    * back_story: Back story of the character. Be careful with the number of tokens. It is usually a long string.
+    * constraints: Constraints of the character
+    * safety: Safety of the character.
+
+
+
+
+* *Method 2*: Make a character file in the code
+1. Enter the new character's name
+```sh
+Character name: Jamal
+Jamal seems not to be in the Character Save folder. Do you want to make a new character, Jamal? (Y : N) : Y
+```
+If you enter a new character's name at ```Character name:```, it will ask you to make a new character. If you enter Y, it will proceed to the next step. If you enter N, it will go back to ```Character name:```
+
+2. Make a new character
+```sh
+Creating folder for character 'Jamal'...
+Successfully created folder for 'Jamal'!
+
+-----------------------------------------------------------------------
+Now, please enter the character's detailed information.
+Finish lists with an empty line or type END/DONE/QUIT/Q.
+The example below shows the format you will be following.
+
+Example:
+{
+    "name": "Kaelus",
+    "sex": "Male",
+    "MBTI": "INTP",
+    "age": "Unknown (Records Lost)",
+    "back_story": "I am Kaelus, the last librarian of the 'Starlight Archive,'...",
+    "constraints": [
+        "Your personality must be based on your MBTI.",
+        "You must adhere to the role of 'Kaelus' until the end, not an AI.",
+        ...
+    ],
+    "safety": [
+        "Never ask for or record personal information.",
+        "Politely refuse unethical or dangerous requests...",
+        ...
+    ]
+}
+-----------------------------------------------------------------------
+
+Sex:
+```
+After you enter Y, it will automatically make a new character's folder in ```CharacterSave``` folder. Then the output will be like this. 
+
+The character is made with these traits:
+* name: The character's name
+* sex: The character's gender. (It works well with classic male and female, but I haven't tested it with other genders. I will test it with various genders later.)
+* MBTI: This is the most important aspect of the character. Based on MBTI, AI will make a personality for the character.
+* Age: Age of the Character
+* back_story: Back story of the character. Be careful with the number of tokens. It is usually a long string.
+* constraints: Constraints of the character
+* safety: Safety of the character.
+
+If you want to see the example, you can translate argenti.json for reference.
+
+### *Since this is a new feature for this project, it makes a lot of errors here.* 
+
+
+#### Command
+During the chat, you can adjust the value or check a character's memory with ```-/open command```.
+
+Current commands are:
+```sh
+Here are the available commands:
+
+[Memory Commands]
+    show_memory         : Display all memory about the current character.
+    show_memory_STM     : Show the character's short-term(GDB) memory.
+    show_memory_LTM     : Show a random entry(for now) from the character's long-term memory(VDB).
+
+[Server Commands]
+    show_serverInfo     : Display the current server and model configuration.
+
+[AI Settings]
+    change_temp_or_maxtoken: Change the AI's temperature or max token settings.
+
+[General Commands]
+    help                : Show this help message.
+    exit                : Exit the command handler and return to the conversation.
+```
 
 
 
