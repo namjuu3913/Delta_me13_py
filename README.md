@@ -102,11 +102,30 @@ Follow these steps to set up the project environment locally. This guide covers 
 
      Put the file in the ```projecfile/Character/models``` file
 
-     Model: [Sentence-Transformers page.](https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2). 
+     Model: [Sentence-Transformers page.](https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2).
 
+**System Requirements**
 
+Desktop
+* Small models(1b ~ 8b): 8–12 GB VRAM
+* Medium models (14B–20B): 16 GB VRAM or more
+* GPU: NVIDIA recommended. Not tested on Intel or AMD (Ryzen) GPUs.
+* System RAM (DRAM): 32 GB recommended. Not tested with 16–32 GB. For smoother operation, 48 GB or more is recommended.
+
+Laptop
+* CPU/GPU: A recent CPU with built-in AI acceleration *or* a dedicated GPU model.
+* Memory: Unified memory or high-bandwidth RAM such as LPDDR5.
+* Capacity: 48 GB (preferred) or at least 32 GB.
+* Tested configuration: Verified working on an HX 370 system with 64 GB DDR5.
+
+Operating System
+* Recommended: Windows
+* Not tested: macOS, Linux
 
 You are now ready to run the project!
+
+
+
 
 
 ## How to use it
