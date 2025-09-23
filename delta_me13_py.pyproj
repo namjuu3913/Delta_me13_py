@@ -47,6 +47,9 @@
     <Folder Include="Character\CharacterSave\Argenti\" />
     <Folder Include="Character\CharacterSave\Argenti\backstory\" />
     <Folder Include="Character\CharacterSave\Argenti\VectorDB\" />
+    <Folder Include="Character\CharacterSave\RiceShower\" />
+    <Folder Include="Character\CharacterSave\RiceShower\GeneralDB\" />
+    <Folder Include="Character\CharacterSave\RiceShower\VectorDB\" />
     <Folder Include="Server\" />
     <Folder Include="Command\" />
   </ItemGroup>
@@ -56,6 +59,8 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Character\CharacterSave\Example\example.json" />
+    <Content Include="Character\CharacterSave\RiceShower\base.txt" />
+    <Content Include="Character\CharacterSave\RiceShower\RiceShower.json" />
     <Content Include="LICENSE.md" />
   </ItemGroup>
   <ItemGroup>
