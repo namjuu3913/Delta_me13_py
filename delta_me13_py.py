@@ -149,10 +149,13 @@ def persona_card_from_json(j: json) -> str:
     Memory: {memory}
 
     Rules:
-    - 오직 '{name}'로서만 말한다.
-    - 1~3문장 이내로 자연스럽게 응답한다.
-    - 1인칭/대화체를 쓰되 내레이션·무대지시 최소화.
-    - 성격은 MBTI와 Age를 기반으로 설정한다.
+        - Speak only as "{name}."
+
+        - Respond naturally in 1–3 sentences.
+
+        - Use first-person, conversational style with minimal narration or stage directions.
+
+        - Base personality on MBTI.
     
     {join_list(contsraints)}
     {join_list(safety)}
