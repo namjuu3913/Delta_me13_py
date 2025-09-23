@@ -278,7 +278,33 @@ Here are the available commands:
 ```
 
 
+## User Sequence diagram
 
+```mermaid
+flowchart TD
+
+A[Choose language between 50 languages] --> B[Choose character]
+B --> C(Does character folder exist in CharacterSave folder?)
+C -- No -->D[Character generation]
+C -- Yes --> E[Read character info]
+D --> F[Generate character class and other classes like CommandHandler, RequestHandler]
+E --> F[Generate character class and other classes like CommandHandler, RequestHandler]
+F --> G(Start local AI server using llama.cpp)
+G -- No --> H[Program crashes]
+G -- Yes --> J[Server successflly loaded]
+J --> K(Is this user's first chat?)
+K -- Yes -->L[Automatically input: introduce yourself]
+K -- No -->M[Gets input from user]
+M --> P[Request to AI local server]
+L --> P[Request to AI local server]
+P--> Q(Is language Korean?)
+Q -- Yes --> R[Show output]
+Q -- No --> S[Request to AI server again to translate output into selected language]
+S --> R
+R --> T(Does the user want to continue?)
+T -- Yes --> K
+T -- No -->U[End]
+```
 
 ## License
 
