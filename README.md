@@ -100,6 +100,8 @@ Follow these steps to set up the project environment locally. This guide covers 
    
      **Use paraphrase-multilingual-mpnet-base-v2 model.**
 
+     If you download it with sentence transformer, it usually downloaded at ```C:\Users\UserName\.cache\huggingface\hub```
+
      Put the file in the ```projecfile/Character/models``` file
 
      Model: [Sentence-Transformers page.](https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2).
