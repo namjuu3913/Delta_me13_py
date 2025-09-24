@@ -118,7 +118,9 @@ Laptop
 * CPU/GPU: A recent CPU with built-in AI acceleration *or* a dedicated GPU model.
 * Memory: Unified memory or high-bandwidth RAM such as LPDDR5.
 * Capacity: 48 GB (preferred) or at least 32 GB.
-* Tested configuration: Verified working on an HX 370 system with 64 GB DDR5.
+* Tested configuration:
+    * Verified working on an HX 370 system with 64 GB DDR5. (Used Qwen3 -14b and Qwen3 -8b)
+    * Verified working on laptop with i5 13th CPU and 16GB ram. (Used Qwen3 -8b) 
 
 Operating System
 * Recommended: Windows
