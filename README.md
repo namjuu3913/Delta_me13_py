@@ -26,7 +26,7 @@ I have goals for this project, and I need collaborators to achieve them.
 ## Highlights
 - Multilingual conversations via `paraphrase-multilingual-mpnet-base-v2`
 - Local LLM (GGUF) inference for privacy and speed
-- FAISS-based vector search for fast retrieval over dialogue/context
+- Tried simple fine-tuning with RAG using FAISS-based vector search for fast retrieval over dialogue/context
 
 
 ## Installation
